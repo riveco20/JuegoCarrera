@@ -5,14 +5,17 @@
  */
 package mx.com.gm.realrancing.domain;
 
+import java.util.*;
+
 /**
  *
  * @author Richard Vellojin
  */
-public class Pista {
+public class Pista extends Conductor{
 
     private int tamañoPista;
-
+   
+    
     public Pista() {
     }
 
@@ -27,11 +30,20 @@ public class Pista {
     public void setTamañoPista(int tamañoPista) {
         this.tamañoPista = tamañoPista;
     }
-
-    @Override
-    public String toString() {
-        return "Pista{" + "Tamaño Pista =" + tamañoPista + '}';
-    }
     
+   
+    public void comenzarCarrera(){
+        int contador=0;
+        
+        while(contador<nombres.size()){
+            for (int i=0; i<nombres.size();i++) {
+               
+                
+            }
+            
+            contador+=1;
+        }
+        
+    }
     
 }
