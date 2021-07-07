@@ -20,20 +20,23 @@ public class Conductor {
         System.out.println("Cuantos Jufadores son");
         int cantidad =Integer.parseInt(consola.nextLine());
         int contador=0;
+        int idPersona=1;
         while(contador<cantidad){
-            System.out.println("Ingrese el nombre de los jugadores");
+            System.out.println("Jugador: " + idPersona);
             String nombre=consola.nextLine();
-            nombres.add(nombre);
+            this.nombres.add(nombre);
             contador+=1;
+            idPersona+=1;
         }
         
         }
     
     public void listarJugadores(){
-        for (String nombre : nombres) {
-            System.out.println("Lista de jugadores");
-            System.out.println(nombre);
-            
+        System.out.println("Lista de jugadores");
+        int carril=1;
+        for (String nombre : this.nombres) {
+          System.out.println("Carril: " +carril + " Jugador: " + nombre);
+          carril+=1;
         }
     }
     @Override
