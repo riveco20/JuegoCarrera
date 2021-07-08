@@ -9,7 +9,8 @@ import java.util.Scanner;
  * @author Richard Vellojin
  */
 public class Autos extends Pista {
-
+    
+    //Atributos clase auto
     public int cantidad;
     Pista pista = new Pista();
     List<String> ganador = new ArrayList<String>();
@@ -17,6 +18,7 @@ public class Autos extends Pista {
     public Autos() {
     }
 
+    //metodos para ejecucion
     public void canitdadAutos() {
         this.cantidad = 0;
         int contadorAutos = 0;
