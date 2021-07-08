@@ -17,8 +17,6 @@ public interface AccesoDatosI {
 
     void escribri(Conductor conductor, String nombreArchivo, boolean anexar) throws EscriturDatosEx;
     
-    String buscar(String nombreArchivo, String buscar) throws LecturaDatosEx;
-    
     void crear(String nombreArchivo) throws AccesoDatosEx; 
     
     void borrar(String nombreArchivo) throws AccesoDatosEx; 

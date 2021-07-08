@@ -1,10 +1,8 @@
-
 package mx.com.gm.realrancing.datos;
 
 import java.io.*;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import mx.com.gm.realrancing.domain.Conductor;
 import mx.com.gm.realrancing.excepciones.*;
 
@@ -15,7 +13,7 @@ import mx.com.gm.realrancing.excepciones.*;
 public class AccesoDatosImp implements AccesoDatosI {
 
     Date fecha = new Date();
-    
+
     @Override
     public boolean existe(String nombreArchivo) throws AccesoDatosEx {
         File archivo = new File(nombreArchivo);
@@ -50,50 +48,19 @@ public class AccesoDatosImp implements AccesoDatosI {
     @Override
     public void escribri(Conductor conductor, String nombreArchivo, boolean anexar) throws EscriturDatosEx {
         var archivo = new File(nombreArchivo);
+        String formato = "hh: mm: ss: a dd-MM-yyyy";
+        SimpleDateFormat formato2 = new SimpleDateFormat(formato);
         try {
             var salida = new PrintWriter(new FileWriter(archivo, anexar));
-            salida.println(conductor.toString());
+
+            salida.println(conductor.toString() + "\t" + "Fecha y hora de ingreso: " + formato2.format(this.fecha));
             salida.close();
-            System.out.println("Se ha escrito informacion al archivo: " + conductor + this.fecha);
+            System.out.println("Se ha escrito informacion al archivo: " + conductor);
         } catch (IOException ex) {
             ex.printStackTrace();
             throw new EscriturDatosEx("Excepcion al escribir Jugador: " + ex.getMessage());
 
         }
-    }
-
-    @Override
-    public String buscar(String nombreArchivo, String buscar) throws LecturaDatosEx {
-        var archivo = new File(nombreArchivo);
-        String resultado = null;
-
-        try {
-            var entrada = new BufferedReader(new FileReader(archivo));
-            String linea = null;
-            linea = entrada.readLine();
-            int indice = 1;
-            while (linea != null) {
-                if (buscar != null && buscar.equalsIgnoreCase(linea)) {
-                    resultado = "Jugador " + linea + " encontrada en el indice " + indice;
-                    break;
-                }
-
-                linea = entrada.readLine();
-                indice++;
-
-            }
-
-            entrada.close();
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-            throw new LecturaDatosEx("Excepcion al buscar jugador: " + ex.getMessage());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            throw new LecturaDatosEx("Excepcion al listar jugador: " + ex.getMessage());
-        }
-
-        return resultado;
-
     }
 
     @Override
@@ -107,17 +74,17 @@ public class AccesoDatosImp implements AccesoDatosI {
             ex.printStackTrace();
             throw new AccesoDatosEx("Excepcion al crear archivo: " + ex.getMessage());
         }
-        
 
     }
 
     @Override
     public void borrar(String nombreRecurso) {
-          var archivo = new File(nombreRecurso);
-         if(archivo.exists())
-          archivo.delete();
+        var archivo = new File(nombreRecurso);
+        if (archivo.exists()) {
+            archivo.delete();
+        }
         System.out.println("Se ha borrado el archivo existente");
-        
+
     }
 
 }
