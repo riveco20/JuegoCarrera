@@ -14,7 +14,6 @@ public interface IRealRancing {
     
     void listarJugador();
     
-    void buscarJugador(String buscar);
     
     void iniciarRealRancing(); 
     

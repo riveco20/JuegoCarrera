@@ -53,18 +53,6 @@ public class RealRancingImp implements IRealRancing{
     }
 
     @Override
-    public void buscarJugador(String buscar){
-        String resultado = null; 
-        try {
-            resultado=this.datos.buscar(NOMBRE_RECURSO, buscar);
-        } catch (AccesoDatosEx ex) {
-            System.out.println("Error de acceso datos");
-            ex.printStackTrace(System.out);
-        }
-        System.out.println("resultado = " + resultado);
-    }
-    
-    @Override
     public void iniciarRealRancing() {
         try {
             if(this.datos.existe(NOMBRE_RECURSO)){

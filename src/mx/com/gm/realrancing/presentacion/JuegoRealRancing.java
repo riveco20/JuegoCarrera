@@ -39,7 +39,6 @@ public class JuegoRealRancing {
                                     + "2. Mostrar Lista\n"
                                     + "3. Comenzar carrera\n"
                                     + "4. Ver lista de todos los jugadores\n"
-                                    + "5. Buscar Personas\n"
                                     + "0. Atras");
                             opcion2 = Integer.parseInt(consola.nextLine());
                             switch (opcion2) {
@@ -60,11 +59,6 @@ public class JuegoRealRancing {
                                     break;
                                 case 4:
                                     juego.listarJugador();
-                                    break;
-                                case 5:
-                                    System.out.println("Introduce el nombre del Jugador que quieres buscar");
-                                    var nombreJugador2 = consola.nextLine();
-                                    juego.buscarJugador(nombreJugador2);
                                     break;
                                 case 0:
                                     System.out.println("Salio del menu");

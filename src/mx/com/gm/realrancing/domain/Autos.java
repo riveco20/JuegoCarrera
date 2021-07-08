@@ -391,7 +391,7 @@ public class Autos extends Pista {
                 }
 
             }
-            {
+            else {
                 System.out.println("EL Tamaño de la Pista debe ser mayor 0 600");
             }
         } catch (Exception e) {
