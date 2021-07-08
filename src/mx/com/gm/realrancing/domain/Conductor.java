@@ -1,6 +1,8 @@
 package mx.com.gm.realrancing.domain;
 
 import java.util.*;
+import mx.com.gm.realrancing.excepciones.AccesoDatosEx;
+import mx.com.gm.realrancing.excepciones.EscriturDatosEx;
 
 /**
  *
@@ -14,26 +16,31 @@ public class Conductor {
 
     }
 
-    public void agregarJugador() {
+    public void agregarJugador() throws EscriturDatosEx {
         Scanner consola = new Scanner(System.in);
-        System.out.println("Cuantos Jufadores son maximo 10 y minimo 2");
+        System.out.println("Cuantos Jufadores son maximo 5 y minimo 2");
         int cantidad = Integer.parseInt(consola.nextLine());
         int contador = 0;
         int idPersona = 1;
         
+        if(cantidad>=2 && cantidad<6){
             nombres.clear();
+       
         while (contador < cantidad) {
-
             System.out.println("Jugador: " + idPersona);
             String nombre = consola.nextLine();
             this.nombres.add(nombre);
             contador += 1;
             idPersona += 1;
-
         }
     }
-
-    public void listarJugadores() {
+        else{
+            System.out.println("La cantidad de jugadores esta fuera del rango");
+            
+        }
+    }
+    
+    public void listarJugadores() throws AccesoDatosEx{
         System.out.println("Lista de jugadores");
         int carril = 1;
         for (String nombre : this.nombres) {
