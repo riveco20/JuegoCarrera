@@ -2,7 +2,9 @@
 package mx.com.gm.realrancing.datos;
 
 import java.io.*;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 import mx.com.gm.realrancing.domain.Conductor;
 import mx.com.gm.realrancing.excepciones.*;
 
@@ -12,6 +14,8 @@ import mx.com.gm.realrancing.excepciones.*;
  */
 public class AccesoDatosImp implements AccesoDatosI {
 
+    Date fecha = new Date();
+    
     @Override
     public boolean existe(String nombreArchivo) throws AccesoDatosEx {
         File archivo = new File(nombreArchivo);
@@ -50,7 +54,7 @@ public class AccesoDatosImp implements AccesoDatosI {
             var salida = new PrintWriter(new FileWriter(archivo, anexar));
             salida.println(conductor.toString());
             salida.close();
-            System.out.println("Se ha escrito informacion al archivo: " + conductor);
+            System.out.println("Se ha escrito informacion al archivo: " + conductor + this.fecha);
         } catch (IOException ex) {
             ex.printStackTrace();
             throw new EscriturDatosEx("Excepcion al escribir Jugador: " + ex.getMessage());
