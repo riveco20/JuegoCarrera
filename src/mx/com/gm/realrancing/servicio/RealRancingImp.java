@@ -11,6 +11,7 @@ import mx.com.gm.realrancing.excepciones.*;
  */
 public class RealRancingImp implements IRealRancing{
     
+    
     private final AccesoDatosI datos;
 
     public RealRancingImp(){
