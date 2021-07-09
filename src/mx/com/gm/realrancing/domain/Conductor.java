@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -18,11 +20,11 @@ public class Conductor {
     private List<String> nombres = new ArrayList<String>();
     private List<String> todosNombres = new ArrayList<String>();
     
+    
     String formato = "hh: mm: ss: a dd-MM-yyyy";
     SimpleDateFormat formato2 = new SimpleDateFormat(formato);
     private Date fecha = new Date();
 
-    
     
     //contructores clase conductor;
     public Conductor() {
@@ -100,7 +102,7 @@ public class Conductor {
     public void listarTotales(){
         System.out.println("Lista de todos los jugadores creado ");
         for (int i = 0; i < todosNombres.size(); i++) {
-            System.out.println("N° " + i + " Jugador: " + todosNombres.get(i) + " Fecha y hora: " + formato2.format(this.fecha));
+            System.out.println("N° " + i + " Jugador: " + todosNombres.get(i));
             
         }
     }
