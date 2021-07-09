@@ -3,9 +3,7 @@ package mx.com.gm.realrancing.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import mx.com.gm.realrancing.excepciones.AccesoDatosEx;
-import mx.com.gm.realrancing.excepciones.EscriturDatosEx;
-import mx.com.gm.realrancing.excepciones.LecturaDatosEx;
+import mx.com.gm.realrancing.excepciones.*;
 
 /**
  *
@@ -14,20 +12,42 @@ import mx.com.gm.realrancing.excepciones.LecturaDatosEx;
 public class Autos extends Pista {
 
     //Atributos clase auto
-    public int cantidad;
-    Pista pista = new Pista();
-    Podio podio = new Podio();
-    List<String> ganador = new ArrayList<String>();
-    List<Integer> metros = new ArrayList<Integer>();
+    private int cantidad;
+    private Pista pista = new Pista();
+    private Podio podio = new Podio();
+    private List<String> ganador = new ArrayList<String>();
+    private List<Integer> metros = new ArrayList<Integer>();
 
+    //Constructor
     public Autos() {
     }
 
+    //Metodos Get
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public Pista getPista() {
+        return pista;
+    }
+
+    public Podio getPodio() {
+        return podio;
+    }
+
+    public List<String> getGanador() {
+        return ganador;
+    }
+
+    public List<Integer> getMetros() {
+        return metros;
+    }
+
     //metodos para ejecucion
-    public void canitdadAutos() throws LecturaDatosEx {
+    public void canitdadAutos() {
         this.cantidad = 0;
         int contadorAutos = 0;
-        while (contadorAutos < nombres.size()) {
+        while (contadorAutos < getNombres().size()) {
             contadorAutos += 1;
 
         }
@@ -57,7 +77,7 @@ public class Autos extends Pista {
                             for (int i = 1; i <= cantidad; i++) {
                                 if (i == 1) {
                                     if (metroAuto1 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(0) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(0) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto1 += valor;
@@ -66,7 +86,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 2) {
                                     if (metroAuto2 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(1) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(1) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto2 += valor;
@@ -77,19 +97,19 @@ public class Autos extends Pista {
                             }
 
                             if (metroAuto1 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(0))) {
+                                if (ganador.contains(getNombres().get(0))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(0));
+                                    ganador.add(getNombres().get(0));
                                     metros.add(metroAuto1);
                                 }
                             }
 
                             if (metroAuto2 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(1))) {
+                                if (ganador.contains(getNombres().get(1))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(1));
+                                    ganador.add(getNombres().get(1));
                                     metros.add(metroAuto2);
                                 }
 
@@ -109,7 +129,7 @@ public class Autos extends Pista {
                             for (int i = 1; i <= cantidad; i++) {
                                 if (i == 1) {
                                     if (metroAuto1 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(0) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(0) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto1 += valor;
@@ -118,7 +138,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 2) {
                                     if (metroAuto2 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(1) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(1) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto2 += valor;
@@ -128,7 +148,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 3) {
                                     if (metroAuto3 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(2) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(2) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto3 += valor;
@@ -139,27 +159,27 @@ public class Autos extends Pista {
                                 }
                             }
                             if (metroAuto1 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(0))) {
+                                if (ganador.contains(getNombres().get(0))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(0));
+                                    ganador.add(getNombres().get(0));
                                     metros.add(metroAuto1);
                                 }
                             }
 
                             if (metroAuto2 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(1))) {
+                                if (ganador.contains(getNombres().get(1))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(1));
+                                    ganador.add(getNombres().get(1));
                                     metros.add(metroAuto2);
                                 }
                             }
                             if (metroAuto3 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(2))) {
+                                if (ganador.contains(getNombres().get(2))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(2));
+                                    ganador.add(getNombres().get(2));
                                     metros.add(metroAuto3);
                                 }
 
@@ -180,7 +200,7 @@ public class Autos extends Pista {
                             for (int i = 1; i <= cantidad; i++) {
                                 if (i == 1) {
                                     if (metroAuto1 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(0) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(0) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto1 += valor;
@@ -190,7 +210,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 2) {
                                     if (metroAuto2 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(1) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(1) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto2 += valor;
@@ -200,7 +220,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 3) {
                                     if (metroAuto3 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(2) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(2) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto3 += valor;
@@ -210,7 +230,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 4) {
                                     if (metroAuto4 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(3) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(3) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto4 += valor;
@@ -222,34 +242,34 @@ public class Autos extends Pista {
                             }
 
                             if (metroAuto1 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(0))) {
+                                if (ganador.contains(getNombres().get(0))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(0));
+                                    ganador.add(getNombres().get(0));
                                     metros.add(metroAuto1);
                                 }
                             }
                             if (metroAuto2 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(1))) {
+                                if (ganador.contains(getNombres().get(1))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(1));
+                                    ganador.add(getNombres().get(1));
                                     metros.add(metroAuto2);
                                 }
                             }
                             if (metroAuto3 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(2))) {
+                                if (ganador.contains(getNombres().get(2))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(2));
+                                    ganador.add(getNombres().get(2));
                                     metros.add(metroAuto3);
                                 }
                             }
                             if (metroAuto4 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(3))) {
+                                if (ganador.contains(getNombres().get(3))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(3));
+                                    ganador.add(getNombres().get(3));
                                     metros.add(metroAuto4);
                                 }
                             }
@@ -270,7 +290,7 @@ public class Autos extends Pista {
                             for (int i = 1; i <= cantidad; i++) {
                                 if (i == 1) {
                                     if (metroAuto1 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(0) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(0) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto1 += valor;
@@ -280,7 +300,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 2) {
                                     if (metroAuto2 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(1) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(1) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto2 += valor;
@@ -290,7 +310,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 3) {
                                     if (metroAuto3 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(2) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(2) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto3 += valor;
@@ -300,7 +320,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 4) {
                                     if (metroAuto4 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(3) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(3) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto4 += valor;
@@ -310,7 +330,7 @@ public class Autos extends Pista {
                                     continue;
                                 } else if (i == 5) {
                                     if (metroAuto5 < tamañoPista) {
-                                        System.out.println("turno de " + nombres.get(4) + " para lanza el dado marque 1");
+                                        System.out.println("turno de " + getNombres().get(4) + " para lanza el dado marque 1");
                                         int dado = pista.dados();
                                         int valor = dado * 100;
                                         metroAuto5 += valor;
@@ -322,68 +342,65 @@ public class Autos extends Pista {
                             }
 
                             if (metroAuto1 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(0))) {
+                                if (ganador.contains(getNombres().get(0))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(0));
+                                    ganador.add(getNombres().get(0));
                                     metros.add(metroAuto1);
                                 }
-                            } 
-                            
+                            }
+
                             if (metroAuto2 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(1))) {
+                                if (ganador.contains(getNombres().get(1))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(1));
+                                    ganador.add(getNombres().get(1));
                                     metros.add(metroAuto2);
                                 }
                             }
 
                             if (metroAuto3 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(2))) {
+                                if (ganador.contains(getNombres().get(2))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(2));
+                                    ganador.add(getNombres().get(2));
                                     metros.add(metroAuto3);
                                 }
                             }
                             if (metroAuto4 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(3))) {
+                                if (ganador.contains(getNombres().get(3))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(3));
+                                    ganador.add(getNombres().get(3));
                                     metros.add(metroAuto4);
                                 }
                             }
                             if (metroAuto5 >= tamañoPista) {
-                                if (ganador.contains(nombres.get(4))) {
+                                if (ganador.contains(getNombres().get(4))) {
                                     System.out.println("");
                                 } else {
-                                    ganador.add(nombres.get(4));
+                                    ganador.add(getNombres().get(4));
                                     metros.add(metroAuto5);
                                 }
 
                             }
 //                          
-                            
+
                             lanzamiento += 1;
                         }
                         podio.mostrarPodio(ganador, metros, cantidad);
                         break;
                     }
-                
-            }
-               
-        }
-        else {
+
+                }
+
+            } else {
                 System.out.println("EL Tamaño de la Pista debe ser mayor 0 600");
-        }
-        }   catch (Exception e) {
+            }
+        } catch (Exception e) {
             System.out.println("Ingrese un numero no una letra o precione cero para salir");
         }
-        }
-
-    
+    }
 
     public void iniciarCarrera() throws LecturaDatosEx, AccesoDatosEx {
         try {
@@ -395,6 +412,7 @@ public class Autos extends Pista {
                     this.agregarAutos(cantidad);
                 } catch (EscriturDatosEx ex) {
                     ex.printStackTrace();
+
                     throw new LecturaDatosEx("Excepcion al leer la canitdad de jugadores: " + ex.getMessage());
 
                 }
@@ -407,4 +425,5 @@ public class Autos extends Pista {
         }
 
     }
+
 }
