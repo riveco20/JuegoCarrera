@@ -54,6 +54,13 @@ public class Pista extends Conductor {
        }
        
     
+    public void desplegarInformacion(int lanzamiento, int dado, int valor, int metroAuto1){
+        System.out.println("Lanzamiento N° " + lanzamiento + " - Valor Lanzado :  " + dado +"\n"
+                          +"Avance en metros: " + valor+"\n"
+                          +"Acomuldado en metros: " + metroAuto1+"\n" 
+                          +"-------------------------\n");
+                                   
+    }
 
     public void carriles()throws AccesoDatosEx {
         this.carriles = 0;

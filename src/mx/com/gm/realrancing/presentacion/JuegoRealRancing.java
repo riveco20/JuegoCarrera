@@ -51,7 +51,6 @@ public class JuegoRealRancing {
                                  
                                    break;
                                 case 2:
-                                    
                                     autos.listarJugadores();
                                     break;
                                 case 3:

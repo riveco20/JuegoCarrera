@@ -53,7 +53,7 @@ public class AccesoDatosImp implements AccesoDatosI {
         try {
             var salida = new PrintWriter(new FileWriter(archivo, anexar));
 
-            salida.println(conductor.toString() + "\t" + "Fecha y hora de ingreso: " + formato2.format(this.fecha));
+            salida.println(conductor.toString() + "\t Fecha y hora de ingreso: " + formato2.format(this.fecha));
             salida.close();
             System.out.println("Se ha escrito informacion al archivo: " + conductor);
         } catch (IOException ex) {

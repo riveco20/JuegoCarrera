@@ -62,11 +62,19 @@ public class Conductor {
     }
 
     public void listarJugadores() throws AccesoDatosEx {
-        System.out.println("Lista de jugadores para el campeonato altual");
+        
+        if(nombres.isEmpty()){
+            System.out.println("Error: \n" 
+                    + " Lista vacia agregar primero los jugadores");
+            
+        }
+        else{
+        System.out.println("Lista de jugadores para el campeonato altual");    
         int carril = 1;
         for (String nombre : this.nombres) {
             System.out.println("Carril: " + carril + " Jugador: " + nombre);
             carril += 1;
+        }
         }
     }
 
