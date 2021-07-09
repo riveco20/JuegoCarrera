@@ -1,7 +1,9 @@
 package mx.com.gm.realrancing.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 
@@ -14,16 +16,27 @@ public class Conductor {
     //Atrubutos Clase conductor
     private String nombreJugador;
     private List<String> nombres = new ArrayList<String>();
+    private List<String> todosNombres = new ArrayList<String>();
+    
+    String formato = "hh: mm: ss: a dd-MM-yyyy";
+    SimpleDateFormat formato2 = new SimpleDateFormat(formato);
+    private Date fecha = new Date();
 
+    
+    
     //contructores clase conductor;
     public Conductor() {
 
     }
-    //Metodos get and set
-
+    
+   
+  
     public Conductor(String nombre) {
         this.nombreJugador = nombre;
     }
+
+   
+    //Metodos get and set
 
     public void setNombreJugador(String nombreJugador) {
         this.nombreJugador = nombreJugador;
@@ -38,6 +51,8 @@ public class Conductor {
     }
 
     //Metodos para Ejecucion del programa
+     
+  
     public List agregarJugador(){
         Scanner consola = new Scanner(System.in);
         System.out.println("Cuantos Jugadores son maximo 5 y minimo 2");
@@ -52,6 +67,7 @@ public class Conductor {
                 System.out.println("Jugador: " + idPersona);
                 String nombre = consola.nextLine();
                 this.nombres.add(nombre);
+                this.todosNombres.add(nombre);
                 contador += 1;
                 idPersona += 1;
             }
@@ -62,6 +78,8 @@ public class Conductor {
 
         return nombres;
     }
+    
+   
 
     public void listarJugadores(){
 
@@ -79,10 +97,18 @@ public class Conductor {
         }
     }
 
+    public void listarTotales(){
+        System.out.println("Lista de todos los jugadores creado ");
+        for (int i = 0; i < todosNombres.size(); i++) {
+            System.out.println("N° " + i + " Jugador: " + todosNombres.get(i) + " Fecha y hora: " + formato2.format(this.fecha));
+            
+        }
+    }
     @Override
     public String toString() {
-        return nombreJugador;
+        return nombreJugador + " \t Fecha y hora de ingreso " + formato2.format(this.fecha);
     }
+
 
   
 

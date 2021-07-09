@@ -57,7 +57,7 @@ public class JuegoRealRancing {
                                     autos.iniciarCarrera();
                                     break;
                                 case 4:
-                                    juego.listarJugador();
+                                    autos.listarTotales();
                                     break;
                                 case 0:
                                     System.out.println("Salio del menu");

@@ -48,12 +48,10 @@ public class AccesoDatosImp implements AccesoDatosI {
     @Override
     public void escribri(Conductor conductor, String nombreArchivo, boolean anexar) throws EscriturDatosEx {
         var archivo = new File(nombreArchivo);
-        String formato = "hh: mm: ss: a dd-MM-yyyy";
-        SimpleDateFormat formato2 = new SimpleDateFormat(formato);
         try {
             var salida = new PrintWriter(new FileWriter(archivo, anexar));
 
-            salida.println(conductor.toString() + "\t Fecha y hora de ingreso: " + formato2.format(this.fecha));
+            salida.println(conductor.toString());
             salida.close();
             System.out.println("Se ha escrito informacion al archivo: " + conductor);
         } catch (IOException ex) {

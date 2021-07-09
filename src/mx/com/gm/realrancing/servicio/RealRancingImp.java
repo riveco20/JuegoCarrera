@@ -37,20 +37,6 @@ public class RealRancingImp implements IRealRancing{
         
     }
 
-    @Override
-    public void listarJugador() {
-        try {
-            var jugadores = this.datos.listar(NOMBRE_RECURSO);
-            for (var jugador : jugadores) {
-                System.out.println("Jugador = " + jugador);
-                
-            }
-        } catch (AccesoDatosEx ex) {
-            System.out.println("Error de acceso datos");
-            ex.printStackTrace(System.out);
-        }
-        
-    }
 
     @Override
     public void iniciarRealRancing() {

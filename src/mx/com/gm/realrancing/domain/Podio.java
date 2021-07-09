@@ -9,13 +9,14 @@ import java.util.List;
  * @author Richard Vellojin
  */
 public class Podio {
-
+   
     private List<String> nombresPodio = new ArrayList<String>();
     private List<Integer> metrosAutos = new ArrayList<Integer>();
 
     public Podio() {
 
     }
+    
 
     public List<String> getNombresPodio() {
         return nombresPodio;
@@ -51,5 +52,7 @@ public class Podio {
         
                 }
     }
+
+    
     }
 

@@ -12,9 +12,6 @@ public interface IRealRancing {
     
     void agregarJugador(String nombreJugador);
     
-    void listarJugador();
-    
-    
     void iniciarRealRancing(); 
     
 }
