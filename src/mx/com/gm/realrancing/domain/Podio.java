@@ -1,5 +1,6 @@
 package mx.com.gm.realrancing.domain;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +25,11 @@ public class Podio {
         return metrosAutos;
     }
 
-    public void mostrarPodio(List nombres, List metros, int cantidad) {
+    public void mostrarPodio(List nombres, List metros, int cantidad){
         this.nombresPodio = nombres;
         this.metrosAutos = metros;
+     
+       
         for (int i = 0; i <= nombresPodio.size()-1; i++) {
                 System.out.println("Jugador: " + nombresPodio.get(i) + "\n Metros Totales: " + metrosAutos.get(i));
 
@@ -45,7 +48,8 @@ public class Podio {
             
         }
         System.out.println("Se lleno el podio");
+        
+                }
+    }
+    }
 
-    }
-    }
-}
