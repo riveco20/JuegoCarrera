@@ -11,32 +11,35 @@ import mx.com.gm.realrancing.excepciones.EscriturDatosEx;
  * @Richard Vellojin <richardvellojin@gmail.com>
  */
 public class Conductor {
+
     //Atrubutos Clase conductor
     private String nombreJugador;
-    List<String> nombres = new ArrayList<String>();
+    private List<String> nombres = new ArrayList<String>();
 
     //contructores clase conductor;
     public Conductor() {
 
     }
+    //Metodos get and set
 
     public Conductor(String nombre) {
         this.nombreJugador = nombre;
     }
-    
-    //Metodos get and set
-    
-    public String getNombreJugador() {
-        return nombreJugador;
-    }
 
     public void setNombreJugador(String nombreJugador) {
         this.nombreJugador = nombreJugador;
-    } 
-    
-    //Metodos para Ejecucion del programa
+    }
 
-    public List agregarJugador() throws EscriturDatosEx {
+    public String getNombreJugador() {
+        return nombreJugador;
+    }
+    
+      public List<String> getNombres() {
+        return nombres;
+    }
+
+    //Metodos para Ejecucion del programa
+    public List agregarJugador(){
         Scanner consola = new Scanner(System.in);
         System.out.println("Cuantos Jugadores son maximo 5 y minimo 2");
         int cantidad = Integer.parseInt(consola.nextLine());
@@ -57,24 +60,23 @@ public class Conductor {
             System.out.println("La cantidad de jugadores esta fuera del rango");
 
         }
-        
+
         return nombres;
     }
 
-    public void listarJugadores() throws AccesoDatosEx {
-        
-        if(nombres.isEmpty()){
-            System.out.println("Error: \n" 
+    public void listarJugadores(){
+
+        if (nombres.isEmpty()) {
+            System.out.println("Error: \n"
                     + " Lista vacia agregar primero los jugadores");
-            
-        }
-        else{
-        System.out.println("Lista de jugadores para el campeonato altual");    
-        int carril = 1;
-        for (String nombre : this.nombres) {
-            System.out.println("Carril: " + carril + " Jugador: " + nombre);
-            carril += 1;
-        }
+
+        } else {
+            System.out.println("Lista de jugadores para el campeonato altual");
+            int carril = 1;
+            for (String nombre : this.nombres) {
+                System.out.println("Carril: " + carril + " Jugador: " + nombre);
+                carril += 1;
+            }
         }
     }
 
@@ -82,10 +84,6 @@ public class Conductor {
     public String toString() {
         return nombreJugador;
     }
-
-    
-
-   
 
   
 
