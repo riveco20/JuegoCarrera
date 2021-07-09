@@ -1,8 +1,6 @@
 package mx.com.gm.realrancing.domain;
 
 import java.util.*;
-import mx.com.gm.realrancing.excepciones.AccesoDatosEx;
-import mx.com.gm.realrancing.excepciones.EscriturDatosEx;
 
 /**
  *
@@ -41,7 +39,7 @@ public class Pista extends Conductor {
 
     //Metodos solucion 
   
-    public int dados() throws EscriturDatosEx {
+    public int dados(){
         Scanner consola = new Scanner(System.in);
         int opcion = 0;
        
@@ -62,10 +60,10 @@ public class Pista extends Conductor {
                                    
     }
 
-    public void carriles()throws AccesoDatosEx {
+    public void carriles() {
         this.carriles = 0;
         int contador = 0;
-        while (contador < nombres.size()) {
+        while (contador < getNombres().size()) {
             carriles += 1;
             contador += 1;
         }
