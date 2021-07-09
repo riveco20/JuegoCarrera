@@ -31,7 +31,7 @@ public class Podio {
      
        
         for (int i = 0; i <= nombresPodio.size()-1; i++) {
-                System.out.println("Jugador: " + nombresPodio.get(i) + "\n Metros Totales: " + metrosAutos.get(i));
+                System.out.println("Jugador: " + nombresPodio.get(i) + " |" + "Metros Totales: " + metrosAutos.get(i));
 
         }
         int contador = 1;
