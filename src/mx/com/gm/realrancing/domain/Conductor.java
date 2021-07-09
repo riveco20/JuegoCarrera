@@ -3,8 +3,7 @@ package mx.com.gm.realrancing.domain;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
-import mx.com.gm.realrancing.excepciones.AccesoDatosEx;
-import mx.com.gm.realrancing.excepciones.EscriturDatosEx;
+
 
 /**
  *
